@@ -21,18 +21,27 @@ public class ProblemA1 {
 
 		}
 		System.out.println(indexList);
-		for (int i : indexList) {
-			// List<Integer>
-		}
-		// System.out.println("f1 " + (A[7] - A[5]));
-		/// System.out.println(("f2" + (A[6] - A[5])));
-
-		int diff1 = Math.min((A[7] - A[5]), (A[6] - A[5]));
-		// int diff2 = Math.min((), ())
-		System.out.println(diff1);
+		List<Integer> diffList = new ArrayList<Integer>();
+		int diff = 0;
 		// 7,5,6
 		// 9,5,6
-
-		return 0;
+		for (int i : indexList) {
+			diff = Math.min((A[i] - A[i + 1]), (A[i + 2] - A[i + 1]));
+			diffList.add(diff);
+			diff = 0;
+		}
+		int min = 0;
+		for (int i : diffList) {
+			min = i;
+			if (i < min)
+				min = i;
+		}
+		System.out.println(diffList);
+		int result = -1;
+		if (!indexList.isEmpty()) {
+			result = min;
+		}
+		System.out.println("Result is " + result);
+		return result;
 	}
 }
